@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="init user" author="ZP">
+        <createTable tableName="user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="user_name" type="varchar(100)" defaultValue="">
+                <constraints nullable="false"  /> 
+            </column>
+            <column name="gender" type="varchar(10)" defaultValue="MALE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(50)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(50)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(100)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(20)" defaultValue="OTHER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_time" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="company init" author="ZP">
+        <createTable tableName="company">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="company_name" type="varchar(100)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(50)" defaultValue="OTHER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_time" type="timestamp" defaultValue="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>      
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="application init" author="ZP">
+        <createTable tableName="application">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="application" type="varchar(100)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

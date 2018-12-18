@@ -1,0 +1,34 @@
+liquibase:
+    change-log: classpath:db/changelog/master.xml
+logging:
+    level:
+        com:
+            icl:
+                authentication: DEBUG
+        org:
+            springframework:
+                security: DEBUG
+mybatis:
+    configuration:
+        default-statement-timeout: 30
+        map-underscore-to-camel-case: true
+    type-aliases-package: com.icl.authentication.entity
+server:
+    port: 7071
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/icl_auth?useUnicode=true&characterEncoding=UTF-8
+        name: root
+        password: ''
+    profiles:
+        active: local
+    thymeleaf:
+      suffix: .html
+      prefix: classpath:/templates
+      mode: LEGACYHTML5
+      cache: false
+swagger:
+    enable: true
+mapper:
+    mappers: com.icl.authentication.common.mapper.BaseMapper
